@@ -22,15 +22,15 @@ def votar():
 
 @app.route('/andamento')
 def andamento():
-    contagem = {"jeander":0, "gabriel":0, "total":0}
+    contagem = {"candidato1":0, "candidato2":0, "total":0}
     with open('votacao.txt', 'r') as arquivo:
         linhas = arquivo.readlines()
         for candidado in linhas:
-            if 'jeander' in candidado:
-                contagem['jeander'] += 1
+            if 'candidato1' in candidado:
+                contagem['candidato1'] += 1
             else:
-                contagem['gabriel'] += 1
-    contagem['total'] = contagem['gabriel'] + contagem['jeander']
+                contagem['candidato2'] += 1
+    contagem['total'] = contagem['candidato2'] + contagem['candidato1']
     return contagem
 
 if __name__ == '__main__':
